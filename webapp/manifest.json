@@ -1,0 +1,158 @@
+{
+	"_version": "1.7.0",
+	"start_url": "start.html",
+	"sap.app": {
+		"id": "com.kd.poc.Y_FE_RFQ_OVP",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{app_title}}",
+		"description": "{{app_description}}",
+		"dataSources": {
+			"YKD_I_RFQ_OVP1_CDS": {
+				"uri": "/sap/opu/odata/sap/YKD_I_RFQ_OVP1_CDS/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"annotations": [
+						"YKD_I_RFQ_OVP1_CDS_VAN",
+						"annotation1"
+					],
+					"localUri": "localService/YKD_I_RFQ_OVP1_CDS/metadata.xml"
+				}
+			},
+			"YKD_I_RFQ_OVP1_CDS_VAN": {
+				"uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='YKD_I_RFQ_OVP1_CDS_VAN',Version='0001')/$value/",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "localService/YKD_I_RFQ_OVP1_CDS/YKD_I_RFQ_OVP1_CDS_VAN.xml"
+				}
+			},
+			"annotation1": {
+				"type": "ODataAnnotation",
+				"uri": "annotation1.xml",
+				"settings": {
+					"localUri": "annotation1.xml"
+				}
+			},
+			"YKD_I_RFQ_OVP2_CDS": {
+				"uri": "/sap/opu/odata/sap/YKD_I_RFQ_OVP2_CDS/",
+				"type": "OData",
+				"settings": {
+					"annotations": [
+						"YKD_I_RFQ_OVP2_CDSAnno0",
+						"annotation3"
+					],
+					"localUri": "localService/YKD_I_RFQ_OVP2_CDS/metadata.xml"
+				}
+			},
+			"YKD_I_RFQ_OVP2_CDSAnno0": {
+				"uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='YKD_I_RFQ_OVP2_CDS_VAN',Version='0001')/$value/",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "localService/YKD_I_RFQ_OVP2_CDS/YKD_I_RFQ_OVP2_CDS_annotations_0.xml"
+				}
+			},
+			"annotation3": {
+				"type": "ODataAnnotation",
+				"uri": "annotation3.xml",
+				"settings": {
+					"localUri": "annotation3.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "OVP.cardtemplate",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ovp": {}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"@i18n": {
+				"preload": true,
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"YKD_I_RFQ_OVP1_CDS": {
+				"dataSource": "YKD_I_RFQ_OVP1_CDS",
+				"settings": {
+					"defaultCountMode": "Inline"
+				}
+			},
+			"YKD_I_RFQ_OVP2_CDS": {
+				"dataSource": "YKD_I_RFQ_OVP2_CDS",
+				"settings": {
+					"defaultCountMode": "Inline"
+				}
+			}
+		},
+		"extends": {
+			"extensions": {}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		}
+	},
+	"sap.ovp": {
+		"globalFilterModel": "YKD_I_RFQ_OVP1_CDS",
+		"globalFilterEntityType": "YKD_I_RFQ_OVP1Type",
+		"containerLayout": "resizable",
+		"enableLiveFilter": true,
+		"considerAnalyticalParameters": false,
+		"cards": {
+			"card00": {
+				"model": "YKD_I_RFQ_OVP1_CDS",
+				"template": "sap.ovp.cards.table",
+				"settings": {
+					"title": "{{card00_title}}",
+					"subTitle": "{{card00_subTitle}}",
+					"entitySet": "YKD_I_RFQ_OVP1",
+					"sortBy": "total",
+					"sortOrder": "descending",
+					"addODataSelect": false,
+					"annotationPath": "com.sap.vocabularies.UI.v1.LineItem#Q1"
+				}
+			},
+			"card01": {
+				"model": "YKD_I_RFQ_OVP2_CDS",
+				"template": "sap.ovp.cards.table",
+				"settings": {
+					"title": "{{card01_title}}",
+					"entitySet": "YKD_I_RFQ_OVP2",
+					"sortBy": "rfq_no",
+					"sortOrder": "descending",
+					"addODataSelect": false,
+					"annotationPath": "com.sap.vocabularies.UI.v1.LineItem"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/ykd_rfq_ovp/webapp",
+		"_version": "1.1.0"
+	}
+}

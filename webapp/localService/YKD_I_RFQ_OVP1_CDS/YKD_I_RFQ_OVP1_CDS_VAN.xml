@@ -1,0 +1,52 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='RETAIL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='RETAIL')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='RETAIL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference Uri="../../../sap/ykd_i_rfq_ovp1_cds/$metadata"><edmx:Include Namespace="YKD_I_RFQ_OVP1_CDS" Alias="SAP"/></edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ykd_i_rfq_ovp1_cds_van.v1">
+			<Annotations Target="YKD_I_RFQ_OVP1_CDS.YKD_I_RFQ_OVP1Type">
+				<Annotation Term="UI.Chart" Qualifier="Q2">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="Title" String="RFQ Count by Key Article"/><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>article</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="article"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>total</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="total"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/><PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#total"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="total">
+					<Record><PropertyValue Property="Value" Path="total"/><PropertyValue Property="Title" String="Total RFQ"/>
+						<PropertyValue Property="CriticalityCalculation">
+							<Record><PropertyValue Property="ImprovementDirection" EnumMember="UI.ImprovementDirectionType/Target"/><PropertyValue Property="DeviationRangeHighValue" Decimal="2000"/><PropertyValue Property="ToleranceRangeLowValue" Decimal="50"/></Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem"><Collection/></Annotation>
+				<Annotation Term="UI.LineItem" Qualifier="Q1">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Key Article"/><PropertyValue Property="Value" Path="article"/></Record>
+						<Record Type="UI.DataFieldForAnnotation"><PropertyValue Property="Label" String="Total RFQ"/><PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#total"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
