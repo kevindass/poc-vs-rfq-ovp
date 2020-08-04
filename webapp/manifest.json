@@ -148,6 +148,19 @@
 					"addODataSelect": false,
 					"annotationPath": "com.sap.vocabularies.UI.v1.LineItem"
 				}
+			},
+			"card03": {
+				"model": "YKD_I_RFQ_OVP1_CDS",
+				"template": "sap.ovp.cards.charts.analytical",
+				"settings": {
+					"title": "{{card00_title}}",
+					"subTitle": "{{card00_subTitle}}",
+					"entitySet": "YKD_I_RFQ_OVP1",
+					"chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#Q2",
+					"dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#Q2",
+					"identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#Q2",
+					"navigation": "dataPointNav"
+				}
 			}
 		}
 	},
