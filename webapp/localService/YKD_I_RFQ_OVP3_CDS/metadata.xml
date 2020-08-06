@@ -1,0 +1,12 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='RETAIL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="YKD_I_RFQ_OVP3_CDS" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="YKD_I_RFQ_OVP3Type" sap:label="RFQ Status" sap:content-version="1">
+				<Key><PropertyRef Name="status"/></Key><Property Name="status" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase"/><Property Name="total" Type="Edm.Int32"/></EntityType>
+			<EntityContainer Name="YKD_I_RFQ_OVP3_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="YKD_I_RFQ_OVP3" EntityType="YKD_I_RFQ_OVP3_CDS.YKD_I_RFQ_OVP3Type" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/YKD_I_RFQ_OVP3_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/YKD_I_RFQ_OVP3_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

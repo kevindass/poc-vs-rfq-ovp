@@ -61,10 +61,28 @@
 				"settings": {
 					"localUri": "annotation3.xml"
 				}
+			},
+			"YKD_I_RFQ_OVP3_CDS": {
+				"uri": "/sap/opu/odata/sap/YKD_I_RFQ_OVP3_CDS/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/YKD_I_RFQ_OVP3_CDS/metadata.xml",
+					"annotations": [
+						"YKD_I_RFQ_OVP3_CDSAnno0",
+						"ODataAnnotation1"
+					]
+				}
+			},
+			"YKD_I_RFQ_OVP3_CDSAnno0": {
+				"uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='YKD_I_RFQ_OVP3_CDS_VAN',Version='0001')/$value/",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": ""
+				}
 			}
 		},
 		"sourceTemplate": {
-			"id": "OVP.cardtemplate",
+			"id": "servicecatalog.connectivityComponentForManifest",
 			"version": "0.0.0"
 		}
 	},
@@ -107,6 +125,16 @@
 				"settings": {
 					"defaultCountMode": "Inline"
 				}
+			},
+			"YKD_I_RFQ_OVP3_CDS": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "YKD_I_RFQ_OVP3_CDS",
+				"preload": true
 			}
 		},
 		"extends": {
@@ -138,6 +166,19 @@
 				}
 			},
 			"card01": {
+				"model": "YKD_I_RFQ_OVP1_CDS",
+				"template": "sap.ovp.cards.charts.analytical",
+				"settings": {
+					"title": "{{card00_title}}",
+					"subTitle": "{{card00_subTitle}}",
+					"entitySet": "YKD_I_RFQ_OVP1",
+					"chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#Q2",
+					"dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#Q2",
+					"identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#Q2",
+					"navigation": "dataPointNav"
+				}
+			},
+			"card02": {
 				"model": "YKD_I_RFQ_OVP2_CDS",
 				"template": "sap.ovp.cards.table",
 				"settings": {
@@ -150,15 +191,15 @@
 				}
 			},
 			"card03": {
-				"model": "YKD_I_RFQ_OVP1_CDS",
+				"model": "YKD_I_RFQ_OVP3_CDS",
 				"template": "sap.ovp.cards.charts.analytical",
 				"settings": {
-					"title": "{{card00_title}}",
-					"subTitle": "{{card00_subTitle}}",
-					"entitySet": "YKD_I_RFQ_OVP1",
-					"chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#Q2",
-					"dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#Q2",
-					"identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#Q2",
+					"title": "{{card04_title}}",
+					"subTitle": "{{card04_subTitle}}",
+					"entitySet": "YKD_I_RFQ_OVP3",
+					"chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#S2",
+					"dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#S2",
+					"identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#S2",
 					"navigation": "dataPointNav"
 				}
 			}
